@@ -19,21 +19,12 @@ class Game
   def add_kill raw_kill
     @total_kills += 1
     p = player_by_name raw_kill.first
-    if p.present?
+    if p
       p.add_kill
     else
-      killed_player = player_by_name raw_kill.second
+      killed_player = player_by_name raw_kill[1]
       killed_player.remove_kill
     end
-  end
-
-  def kills
-    kills = {}
-
-    @players.each do |player|
-      kills[player.name] = player.kills
-    end
-    kills
   end
 
   private
