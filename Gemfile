@@ -5,3 +5,4 @@ source "https://rubygems.org"
 
 gem 'jbuilder'
 gem 'sinatra'
+gem 'rspec'
