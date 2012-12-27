@@ -16,8 +16,8 @@ Q3Stats.Chart = function() {
     data.addColumn('string', 'Player');
     data.addColumn('number', 'Kills');
 
-    $(Q3Stats.App.currentGame.kills).each(function(index, kill){
-      data.addRow([kill.name, kill.kills])
+    $(Q3Stats.App.currentGame.players).each(function(index, player){
+      data.addRow([player.name, player.kills])
     });
 
     // Set chart options
