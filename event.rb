@@ -1,4 +1,3 @@
-
 # Public: Represents a event occured on the games.log.
 # For each relevant line that represents some event, like a game initiating,
 # a new player or a player killing other player, tt is created on Event Object, to
