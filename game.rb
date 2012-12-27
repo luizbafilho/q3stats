@@ -1,5 +1,4 @@
 class Game
-
   # Public: Gets/Sets total_kills and players.
   attr_accessor :total_kills, :players
 
@@ -11,7 +10,7 @@ class Game
 
   # Public: Adds the user to the players array
   #
-  # player -Player object
+  # player - Player object
   def add_player player
     p = player_by_id(player.id)
     if !p
@@ -24,7 +23,7 @@ class Game
   # Public: Adds a kill to the user. If the killer is the <world> then the user
   # has one kill removed
   #
-  # raw_kill -Raw data returned by the regex match
+  # raw_kill - Raw data returned by the regex match
   #
   # Examples
   #
@@ -45,7 +44,7 @@ class Game
 
   # Private: Finds a user by ID in the players array.
   #
-  # id -Player ID
+  # id - Player ID
   #
   # Returns the found user.
   def player_by_id id
@@ -60,5 +59,4 @@ class Game
   def player_by_name name
     @players.select {|p| p.name == name}.first
   end
-
 end

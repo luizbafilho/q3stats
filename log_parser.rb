@@ -33,7 +33,7 @@ class LogParser
 
   # Public: Verifies if the line represents a game.
   #
-  # line -games.log line.
+  # line - games.log line.
   #
   # Returns boolean.
   def game? line
