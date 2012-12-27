@@ -37,7 +37,9 @@ describe Game do
     before(:each) do
       @game = Game.new
       @player = Player.new([1, 'Player 1'])
+      @player2 = Player.new([2, 'Player 2'])
       @game.add_player @player
+      @game.add_player @player2
     end
 
     it "increments the total_kills variable" do
@@ -55,5 +57,9 @@ describe Game do
       @game.add_kill(['<world>', 'Player 1', 'MOD_HURT'])
     end
 
+    it "adds a death to the killed player" do
+      @player2.should_receive(:add_death)
+      @game.add_kill(['Player 1', 'Player 2', 'MOD_HURT'])
+    end
   end
 end

@@ -27,7 +27,7 @@ describe Player do
     end
   end
 
-  describe "#removekill" do
+  describe "#remove_kill" do
 
     let(:player) { Player.new([0, "Test"]) }
 
@@ -36,4 +36,15 @@ describe Player do
       player.kills.should eq(-1)
     end
   end
+
+  describe "#add_death" do
+
+    let(:player) { Player.new([0, "Test"]) }
+
+    it "removes one kill from the player" do
+      player.add_death
+      player.deaths.should eq(1)
+    end
+  end
+
 end

@@ -43,6 +43,7 @@ describe Q3Stats do
       File.stub(:readlines).and_return(
         [ '12:13 InitGame: \sv_floodProtect\1\sv_maxPing\0\sv_minPing\0\sv...',
           '12:14 ClientUserinfoChanged: 2 n\Isgalamido\t\0\model\sarge\hm...',
+          '12:14 ClientUserinfoChanged: 3 n\Zeh\t\0\model\sarge\hm...',
           '12:24 Kill: 3 4 6: Isgalamido killed Zeh by MOD_ROCKET'
         ])
         @stats = Q3Stats.new
@@ -50,11 +51,16 @@ describe Q3Stats do
         @stats.to_json.should eq([
           {
             "total_kills" => 1,
-            "players" => ["Isgalamido"],
-            "kills" => [
+            "players" => [
               {
                 "name" => "Isgalamido",
-                "kills" => 1
+                "kills" => 1,
+                "deaths" => 0
+              },
+              {
+                "name" => "Zeh",
+                "kills" => 0,
+                "deaths" => 1
               }
             ]
           }
