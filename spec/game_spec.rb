@@ -2,38 +2,34 @@ require File.join(File.dirname(__FILE__), '..', 'game')
 
 describe Game do
   describe "#initialize" do
-    before(:all) do
-      @game = Game.new
-    end
+    let(:game) { Game.new }
 
     it "returns total kills equals 0" do
-      @game.total_kills.should eq(0)
+      game.total_kills.should eq(0)
     end
 
     it "length of players should be 0" do
-      @game.players.size.should eq(0)
+      game.players.size.should eq(0)
     end
   end
 
   describe "#add_player" do
-    before(:each) do
-      @game = Game.new
-    end
+    let(:game) { Game.new }
 
     it "adds the new player to the game" do
       player = Player.new([1, 'Player 1'])
-      @game.add_player player
-      @game.players.first.should eq(player)
+      game.add_player player
+      game.players.first.should eq(player)
     end
 
     it "renames the existent player in the game" do
       player = Player.new([1, 'Player 1'])
       renamed_player = Player.new([1, 'Player 1 - Renamed'])
 
-      @game.add_player player
-      @game.add_player renamed_player
+      game.add_player player
+      game.add_player renamed_player
 
-      @game.players.first.name.should eq(renamed_player.name)
+      game.players.first.name.should eq(renamed_player.name)
     end
   end
 
