@@ -39,7 +39,7 @@ class Q3Stats
     Jbuilder.encode do |json|
       json.array!(@games) do |game|
         json.total_kills game.total_kills
-        json.players game.players, :name, :kills
+        json.players game.players, :name, :kills, :deaths
       end
     end
   end

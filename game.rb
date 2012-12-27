@@ -31,13 +31,13 @@ class Game
   #
   def add_kill raw_kill
     @total_kills += 1
-    p = player_by_name raw_kill.first
-    if p
-      p.add_kill
-    else
-      killed_player = player_by_name raw_kill[1]
-      killed_player.remove_kill
-    end
+
+    killer = player_by_name raw_kill[0]
+    dead   = player_by_name raw_kill[1]
+
+    killer ? killer.add_kill : dead.remove_kill
+    
+    dead.add_death
   end
 
   private

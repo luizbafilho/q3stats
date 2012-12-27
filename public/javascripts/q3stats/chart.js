@@ -15,9 +15,10 @@ Q3Stats.Chart = function() {
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Player');
     data.addColumn('number', 'Kills');
+    data.addColumn('number', 'Deaths');
 
     $(Q3Stats.App.currentGame.players).each(function(index, player){
-      data.addRow([player.name, player.kills])
+      data.addRow([player.name, player.kills, player.deaths])
     });
 
     // Set chart options

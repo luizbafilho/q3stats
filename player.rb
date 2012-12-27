@@ -2,7 +2,7 @@ class Player
   # Public: Returns the id of the user, it is a ID grabbed from the log file.
   attr_reader :id
   # Public: Gets/Sets for the users's name and the users kills.
-  attr_accessor :name, :kills
+  attr_accessor :name, :kills, :deaths
 
   # Public: Initialize a Player.
   #
@@ -11,6 +11,7 @@ class Player
     @id = raw_player[0]
     @name = raw_player[1]
     @kills = 0
+    @deaths = 0
   end
 
   # Public:  Increase the user kills counter.
@@ -23,4 +24,8 @@ class Player
     @kills -= 1
   end
 
+  # Public:  Increase the user deaths counter.
+  def add_death
+    @deaths += 1
+  end
 end
