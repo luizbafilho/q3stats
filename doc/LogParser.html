@@ -99,7 +99,19 @@
 </dl>
 <div class="clear"></div>
 
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Parses the games.log file and creates multiples events to represents the
+file content.</p>
 
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
 
 
 
@@ -129,7 +141,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>Returns the value of attribute events.</p>
+<p>Array of events the represents the log content.</p>
 </div></span>
   
 </li>
@@ -165,7 +177,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Relevant data grabbed by the regex.</p>
+</div></span>
   
 </li>
 
@@ -187,7 +201,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies if the line represents a game.</p>
+</div></span>
   
 </li>
 
@@ -212,7 +228,7 @@
 
   
     <span class="summary_desc"><div class='inline'>
-<p>A new instance of LogParser.</p>
+<p>Reads the game.log file and initilize the @events variable.</p>
 </div></span>
   
 </li>
@@ -235,7 +251,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies if the line represents a kill.</p>
+</div></span>
   
 </li>
 
@@ -257,7 +275,10 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates the events acording to the games.log line and add this event to the
+array.</p>
+</div></span>
   
 </li>
 
@@ -279,7 +300,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies if the line represents a player.</p>
+</div></span>
   
 </li>
 
@@ -302,7 +325,7 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>A new instance of LogParser</p>
+<p>Reads the game.log file and initilize the @events variable.</p>
 
 
   </div>
@@ -316,13 +339,13 @@
       <pre class="lines">
 
 
-7
-8
-9
-10</pre>
+10
+11
+12
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 7</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 10</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@log_lines</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_readlines'>readlines</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>'</span><span class='tstring_content'>logs/games.log</span><span class='tstring_end'>'</span></span><span class='rparen'>)</span>
@@ -352,7 +375,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns the value of attribute events</p>
+<p>Array of events the represents the log content. This events can be games,
+playes or kills.</p>
 
 
   </div>
@@ -366,12 +390,12 @@
       <pre class="lines">
 
 
-5
-6
-7</pre>
+7
+8
+9</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 5</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 7</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_events'>events</span>
   <span class='ivar'>@events</span>
@@ -397,18 +421,75 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Relevant data grabbed by the regex.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><span class='comment'># =&gt; ['Player 1', 'Player 2', 'MOD_ROCKET']</span></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>line</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>games.log line.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>the data returned by the matched regex.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-41
-42
-43</pre>
+72
+73
+74</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 41</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 72</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_captures'>captures</span>
   <span class='ivar'>@current_match</span><span class='period'>.</span><span class='id identifier rubyid_captures'>captures</span> <span class='kw'>if</span> <span class='ivar'>@current_match</span>
@@ -430,6 +511,8 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Verifies if the line represents a game.</p>
+
 
   </div>
 </div>
@@ -445,6 +528,11 @@
       
       
       
+        &mdash;
+        <div class='inline'>
+<p>boolean.</p>
+</div>
+      
     </li>
   
 </ul>
@@ -455,12 +543,12 @@
       <pre class="lines">
 
 
-27
-28
-29</pre>
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_game?'>game?</span> <span class='id identifier rubyid_line'>line</span>
   <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>InitGame</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='kw'>false</span>
@@ -482,11 +570,33 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Verifies if the line represents a kill.</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>line</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>games.log line.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -496,6 +606,11 @@
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>boolean.</p>
+</div>
       
     </li>
   
@@ -507,13 +622,13 @@
       <pre class="lines">
 
 
-36
-37
-38
-39</pre>
+58
+59
+60
+61</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 58</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_kill?'>kill?</span> <span class='id identifier rubyid_line'>line</span>
   <span class='ivar'>@current_match</span> <span class='op'>=</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>Kill:\s.*:\s(.*)\skilled\s(.*)\sby\s(.*)</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
@@ -533,29 +648,59 @@
   
 
   
-</h3><table class="source_code">
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Creates the events acording to the games.log line and add this event to the
+array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>the events array.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-12
-13
-14
-15
-16
-17
-18
 19
 20
 21
 22
 23
 24
-25</pre>
+25
+26
+27
+28
+29
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 19</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_parse'>parse</span>
   <span class='ivar'>@log_lines</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
@@ -588,11 +733,33 @@
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>Verifies if the line represents a player.</p>
+
 
   </div>
 </div>
 <div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
   
+    <li>
+      
+        <span class='name'>line</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>games.log line.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -602,6 +769,11 @@
         <span class='type'>(<tt>Boolean</tt>)</span>
       
       
+      
+        &mdash;
+        <div class='inline'>
+<p>boolean.</p>
+</div>
       
     </li>
   
@@ -613,13 +785,13 @@
       <pre class="lines">
 
 
-31
-32
-33
-34</pre>
+48
+49
+50
+51</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'log_parser.rb', line 31</span>
+      <pre class="code"><span class="info file"># File 'log_parser.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_player?'>player?</span> <span class='id identifier rubyid_line'>line</span>
   <span class='ivar'>@current_match</span> <span class='op'>=</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>ClientUserinfoChanged:\s(\d)\sn\\(.*)\\t\\</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
@@ -635,7 +807,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 26 23:14:21 2012 by
+  Generated on Wed Dec 26 23:44:08 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
