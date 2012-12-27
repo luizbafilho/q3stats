@@ -22,7 +22,7 @@ Q3Stats.Chart = function() {
     });
 
     // Set chart options
-    var options = {'title':"Player's kills",
+    var options = {'title':"Kills and Deaths",
                    'width':400,
                    'height':300};
 
