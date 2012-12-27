@@ -35,5 +35,27 @@
     </div>
 
     <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/handlebars.js"></script>
   </body>
 </html>
+
+<script id="game-template" type="text/html">
+    <h3>Game {{id}}</h3>
+    <h6>Total Kills: {{total_kills}}</h6>
+    <table class='table table-bordered table{{id}}'>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Kills</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#kills}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{kills}}</td>
+            </tr>
+            {{/kills}}
+        </tbody>
+    </table>
+</script>
