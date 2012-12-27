@@ -37,9 +37,11 @@
 
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/handlebars.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
     <script src="/javascripts/q3stats/app.js"></script>
     <script src="/javascripts/q3stats/tables.js"></script>
     <script src="/javascripts/q3stats/filter.js"></script>
+    <script src="/javascripts/q3stats/chart.js"></script>
   </body>
 </html>
 
@@ -65,17 +67,18 @@
 </script>
 
 <script type="text/javascript">
-  $(function(){
+  Q3Stats.Chart.init();
+  google.setOnLoadCallback(function(){
+    $(function(){
+      $.get('/stats', function(games){
+        Q3Stats.App.init(games);
 
-    $.get('/stats', function(games){
-      Q3Stats.App.init(games);
+        Q3Stats.Filter.loadGames();
+        Q3Stats.Filter.setupChange();
 
-      Q3Stats.Filter.loadGames();
-      Q3Stats.Filter.setupChange();
-
-      Q3Stats.Tables.init();
-      Q3Stats.Tables.renderAll();
-       
+        Q3Stats.Tables.init();
+        Q3Stats.Tables.renderAll();
+      });
     });
   });
     

@@ -21,7 +21,7 @@ Q3Stats.Tables = function(){
   var _renderAll = function() {
     var self = this;
     var rendered = null;
-    // Q3Stats.Chart.$chart.html('');
+    Q3Stats.Chart.$chart.html('');
     self.$games.html('');
     $(Q3Stats.App.games).each(function(index, game){
       game.id = index;
