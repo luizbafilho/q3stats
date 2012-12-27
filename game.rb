@@ -20,8 +20,8 @@ class Game
     end
   end
 
-  # Public: Adds a kill to the user. If the killer is the <world> then the user
-  # has one kill removed
+  # Public: Adds a kill to the killer and a death to the dead player. If the killer is the <world> then the player
+  # gets one kill removed.
   #
   # raw_kill - Raw data returned by the regex match
   #
