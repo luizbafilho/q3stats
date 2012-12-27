@@ -11,13 +11,13 @@ class OverallRanking
     @games.each do |game|
       game.players.each do |player|
         add_player player
-      end 
+      end
     end
   end
 
   def add_player player
     ranking_player = player_by_name(player.name)
-    
+
     if ranking_player
       index = @ranking.find_index(ranking_player)
       @ranking[index][:kills] += player.kills
@@ -33,16 +33,6 @@ class OverallRanking
   end
 
   private
-
-  # def method_missing(name, *args)
-  #   match = name.to_s.match(/create_by_(kills|deaths)/)
-  #   if match
-  #     @type = match.captures[0].to_sym
-  #     create
-  #   else
-  #     super
-  #   end
-  # end
 
   # Private: Finds a player by name in the players array.
   #
