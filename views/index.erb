@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Q3Stats</title>
+    <!-- Bootstrap -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <style type="text/css">
+        .container-narrow {
+            margin: 0 auto;
+            width: 700px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class='container-narrow'>
+        <div class="masthead">
+            <ul class="nav nav-pills pull-right">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <h3 class="muted">Quake 3 Stats</h3>
+        </div>
+        <hr>
+        <label class="control-label" for='filter'>Filter: </label>
+        <select id='filter'>
+            <option value='-1'>All</option>
+        </select>
+        <hr>
+        <div id='chart'></div>
+        <div id='games'></div>
+
+    </div>
+
+    <script src="/javascripts/jquery.js"></script>
+  </body>
+</html>
