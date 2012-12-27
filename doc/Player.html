@@ -109,6 +109,33 @@
       <li class="public ">
   <span class="summary_signature">
     
+      <a href="#deaths-instance_method" title="#deaths (instance method)">- (Object) <strong>deaths</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Gets/Sets for the users's name and the users kills.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#id-instance_method" title="#id (instance method)">- (Object) <strong>id</strong> </a>
     
 
@@ -201,6 +228,30 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_death-instance_method" title="#add_death (instance method)">- (Object) <strong>add_death</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Increase the user deaths counter.</p>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -332,7 +383,8 @@
 11
 12
 13
-14</pre>
+14
+15</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'player.rb', line 10</span>
@@ -341,6 +393,7 @@
   <span class='ivar'>@id</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_player'>raw_player</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
   <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_raw_player'>raw_player</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
   <span class='ivar'>@kills</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@deaths</span> <span class='op'>=</span> <span class='int'>0</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -353,9 +406,52 @@
     <h2>Instance Attribute Details</h2>
     
       
-      <span id=""></span>
+      <span id="deaths=-instance_method"></span>
       <div class="method_details first">
-  <h3 class="signature first" id="id-instance_method">
+  <h3 class="signature first" id="deaths-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deaths</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Gets/Sets for the users's name and the users kills.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deaths'>deaths</span>
+  <span class='ivar'>@deaths</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="id-instance_method">
   
     - (<tt>Object</tt>) <strong>id</strong>  <span class="extras">(readonly)</span>
   
@@ -489,7 +585,48 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="add_kill-instance_method">
+  <h3 class="signature first" id="add_death-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_death</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Increase the user deaths counter.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'player.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_death'>add_death</span>
+  <span class='ivar'>@deaths</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_kill-instance_method">
   
     - (<tt>Object</tt>) <strong>add_kill</strong> 
   
@@ -514,12 +651,12 @@
       <pre class="lines">
 
 
-17
 18
-19</pre>
+19
+20</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 17</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 18</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_add_kill'>add_kill</span>
   <span class='ivar'>@kills</span> <span class='op'>+=</span> <span class='int'>1</span>
@@ -555,12 +692,12 @@
       <pre class="lines">
 
 
-22
 23
-24</pre>
+24
+25</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'player.rb', line 22</span>
+      <pre class="code"><span class="info file"># File 'player.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_kill'>remove_kill</span>
   <span class='ivar'>@kills</span> <span class='op'>-=</span> <span class='int'>1</span>
@@ -575,7 +712,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 26 23:44:08 2012 by
+  Generated on Thu Dec 27 20:31:11 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>

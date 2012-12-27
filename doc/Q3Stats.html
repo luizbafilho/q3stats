@@ -147,6 +147,35 @@ possible return all the information as a json.</p>
 </li>
 
     
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#games-instance_method" title="#games (instance method)">- (Object) <strong>games</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Events array.</p>
+</div></span>
+  
+</li>
+
+    
   </ul>
 
 
@@ -266,14 +295,14 @@ possible return all the information as a json.</p>
       <pre class="lines">
 
 
+14
 15
 16
 17
-18
-19</pre>
+18</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'q3stats.rb', line 15</span>
+      <pre class="code"><span class="info file"># File 'q3stats.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
   <span class='ivar'>@games</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -318,15 +347,58 @@ possible return all the information as a json.</p>
       <pre class="lines">
 
 
+11
 12
-13
-14</pre>
+13</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'q3stats.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'q3stats.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_events'>events</span>
   <span class='ivar'>@events</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="games-instance_method">
+  
+    - (<tt>Object</tt>) <strong>games</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Events array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'q3stats.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_games'>games</span>
+  <span class='ivar'>@games</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -384,6 +456,7 @@ possible return all the information as a json.</p>
       <pre class="lines">
 
 
+23
 24
 25
 26
@@ -393,11 +466,10 @@ possible return all the information as a json.</p>
 30
 31
 32
-33
-34</pre>
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'q3stats.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'q3stats.rb', line 23</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_generate'>generate</span>
   <span class='ivar'>@events</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_event'>event</span><span class='op'>|</span>
@@ -459,25 +531,23 @@ possible return all the information as a json.</p>
       <pre class="lines">
 
 
+38
 39
 40
 41
 42
 43
 44
-45
-46
-47</pre>
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'q3stats.rb', line 39</span>
+      <pre class="code"><span class="info file"># File 'q3stats.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_json'>to_json</span>
   <span class='const'>Jbuilder</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_json'>json</span><span class='op'>|</span>
     <span class='id identifier rubyid_json'>json</span><span class='period'>.</span><span class='id identifier rubyid_array!'>array!</span><span class='lparen'>(</span><span class='ivar'>@games</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_game'>game</span><span class='op'>|</span>
       <span class='id identifier rubyid_json'>json</span><span class='period'>.</span><span class='id identifier rubyid_total_kills'>total_kills</span> <span class='id identifier rubyid_game'>game</span><span class='period'>.</span><span class='id identifier rubyid_total_kills'>total_kills</span>
-      <span class='id identifier rubyid_json'>json</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span> <span class='id identifier rubyid_game'>game</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='id identifier rubyid_p'>p</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='rbrace'>}</span>
-      <span class='id identifier rubyid_json'>json</span><span class='period'>.</span><span class='id identifier rubyid_kills'>kills</span> <span class='id identifier rubyid_game'>game</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span><span class='comma'>,</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:kills</span>
+      <span class='id identifier rubyid_json'>json</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span> <span class='id identifier rubyid_game'>game</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span><span class='comma'>,</span> <span class='symbol'>:name</span><span class='comma'>,</span> <span class='symbol'>:kills</span><span class='comma'>,</span> <span class='symbol'>:deaths</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></pre>
@@ -491,7 +561,7 @@ possible return all the information as a json.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 26 23:44:08 2012 by
+  Generated on Thu Dec 27 20:31:11 2012 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.3 (ruby-1.9.3).
 </div>
