@@ -24,6 +24,8 @@
         <h3 class="muted">Quake 3 Stats</h3>
       </div>
       <hr>
+        <div id='chart'></div>
+      <hr>
       <h3>Overall Ranking</h3>
       <table class='table table-bordered'>
         <thead>
@@ -41,7 +43,9 @@
     <script src="/javascripts/jquery.js"></script>
     <script src="/javascripts/handlebars.js"></script>
     <script src="/javascripts/underscore-min.js"></script>
+    <script src="https://www.google.com/jsapi"></script>
     <script src="/javascripts/q3stats/ranking.js"></script>
+    <script src="/javascripts/q3stats/chart.js"></script>
 
   </body>
 </html>
@@ -55,10 +59,15 @@
 </script>
 
 <script type="text/javascript">
-  $(function(){
-    $.get('/ranking.json', function(players){
-      Q3Stats.Ranking.init(players);
-      Q3Stats.Ranking.render();
+  Q3Stats.Chart.init();
+  google.setOnLoadCallback(function(){
+    $(function(){
+      $.get('/ranking.json', function(players){
+        Q3Stats.Ranking.init(players);
+        Q3Stats.Ranking.render();
+
+        Q3Stats.Chart.drawRanking();
+      });
     });
   });
 </script>

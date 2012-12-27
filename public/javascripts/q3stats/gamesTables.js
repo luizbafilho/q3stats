@@ -9,14 +9,14 @@ Q3Stats.GamesTables = function(){
 
     this.$games = $('#games');
     this.template =  Handlebars.compile(src);
-  }
+  };
 
   var _render = function(index){
     Q3Stats.App.setCurrentGame(index);
     this.$games.html(this.template(Q3Stats.App.games[index]));
-    
-    Q3Stats.Chart.draw();
-  }
+
+    Q3Stats.Chart.drawGame();
+  };
 
   var _renderAll = function() {
     var self = this;
@@ -25,14 +25,14 @@ Q3Stats.GamesTables = function(){
     self.$games.html('');
     $(Q3Stats.App.games).each(function(index, game){
       game.id = index;
-      rendered = self.template(game)
-      $(rendered).appendTo(self.$games)
+      rendered = self.template(game);
+      $(rendered).appendTo(self.$games);
     });
-  }
+  };
 
   return {
     render: _render,
     renderAll: _renderAll,
-    init: _init 
-  }
+    init: _init
+  };
 }();
