@@ -39,6 +39,7 @@
     <script src="/javascripts/handlebars.js"></script>
     <script src="/javascripts/q3stats/app.js"></script>
     <script src="/javascripts/q3stats/tables.js"></script>
+    <script src="/javascripts/q3stats/filter.js"></script>
   </body>
 </html>
 
@@ -66,13 +67,16 @@
 <script type="text/javascript">
   $(function(){
 
-      $.get('/stats', function(games){
-          Q3Stats.App.init(games);
+    $.get('/stats', function(games){
+      Q3Stats.App.init(games);
 
-          Q3Stats.Tables.init();
-          Q3Stats.Tables.renderAll();
-         
-      });
+      Q3Stats.Filter.loadGames();
+      Q3Stats.Filter.setupChange();
+
+      Q3Stats.Tables.init();
+      Q3Stats.Tables.renderAll();
+       
+    });
   });
     
 </script>
