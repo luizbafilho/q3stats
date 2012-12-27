@@ -12,7 +12,7 @@ class LogParser
   def parse
     @log_lines.each do |line|
       if game? line
-        Event.new(:game, captures) 
+        Event.new(:game, captures)
       elsif player? line
         Event.new(:player, captures)
       elsif kill? line

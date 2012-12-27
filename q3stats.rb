@@ -4,7 +4,7 @@ require './player.rb'
 require 'jbuilder'
 
 class Q3Stats
-
+  attr_reader :events
   def initialize
     @games = []
     parser = LogParser.new
@@ -23,10 +23,6 @@ class Q3Stats
     end
   end
 
-  def add_game
-    @games << Game.new
-  end
-
   def to_json
     Jbuilder.encode do |json|
       json.array!(@games) do |game|
@@ -38,6 +34,10 @@ class Q3Stats
   end
 
   private
+
+  def add_game
+    @games << Game.new
+  end
 
   def current_game
     @games.last
