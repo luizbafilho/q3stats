@@ -8,7 +8,7 @@ require 'jbuilder'
 class Q3Stats
 
   # Public: Events array.
-  attr_reader :events
+  attr_reader :events, :games
 
   # Public: Initialize the games array. Calls the parser and set the returned events.
   def initialize

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Q3Stats</title>
+    <!-- Bootstrap -->
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" media="screen">
+
+    <style type="text/css">
+      .container-narrow {
+          margin: 0 auto;
+          width: 700px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class='container-narrow'>
+
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li><a href="/">Home</a></li>
+          <li class="active"><a href="/ranking">Ranking</a></li>
+        </ul>
+        <h3 class="muted">Quake 3 Stats</h3>
+      </div>
+      <hr>
+      <h3>Overall Ranking</h3>
+      <table class='table table-bordered'>
+        <thead>
+          <tr>
+            <th>Player</th>
+            <th>Kills</th>
+            <th>Deaths</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+
+    <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/handlebars.js"></script>
+    <script src="/javascripts/underscore-min.js"></script>
+    <script src="/javascripts/q3stats/ranking.js"></script>
+
+  </body>
+</html>
+
+<script id="row-template" type="text/html">
+  <tr>
+    <td>{{name}}</td>
+    <td>{{kills}}</td>
+    <td>{{deaths}}</td>
+  </tr>
+</script>
+
+<script type="text/javascript">
+  $(function(){
+    $.get('/ranking.json', function(players){
+      Q3Stats.Ranking.init(players);
+      Q3Stats.Ranking.render();
+    });
+  });
+</script>

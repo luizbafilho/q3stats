@@ -6,9 +6,9 @@ Q3Stats.Filter = function(){
   var _setupChange = function(){
    $('#filter').change(function(){
         if(this.value == -1){
-            Q3Stats.Tables.renderAll();
+            Q3Stats.GamesTables.renderAll();
         }else{
-            Q3Stats.Tables.render(this.value);
+            Q3Stats.GamesTables.render(this.value);
         }
     });
   }

@@ -19,6 +19,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="/">Home</a></li>
+          <li><a href="/ranking">Ranking</a></li>
         </ul>
         <h3 class="muted">Quake 3 Stats</h3>
       </div>
@@ -37,7 +38,7 @@
     <script src="/javascripts/handlebars.js"></script>
     <script src="https://www.google.com/jsapi"></script>
     <script src="/javascripts/q3stats/app.js"></script>
-    <script src="/javascripts/q3stats/tables.js"></script>
+    <script src="/javascripts/q3stats/gamesTables.js"></script>
     <script src="/javascripts/q3stats/filter.js"></script>
     <script src="/javascripts/q3stats/chart.js"></script>
   </body>
@@ -76,8 +77,8 @@
         Q3Stats.Filter.loadGames();
         Q3Stats.Filter.setupChange();
 
-        Q3Stats.Tables.init();
-        Q3Stats.Tables.renderAll();
+        Q3Stats.GamesTables.init();
+        Q3Stats.GamesTables.renderAll();
       });
     });
   });
