@@ -18,6 +18,8 @@ Q3Stats.Ranking = function(){
     $(self.players).each(function(index, player){
       $(self.template(player)).appendTo(self.$tbody);
     });
+
+    $(".table").tablesorter();
   };
 
   return{

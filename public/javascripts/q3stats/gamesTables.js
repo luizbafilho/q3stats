@@ -15,6 +15,8 @@ Q3Stats.GamesTables = function(){
     Q3Stats.App.setCurrentGame(index);
     this.$games.html(this.template(Q3Stats.App.games[index]));
 
+    $(".table").tablesorter();
+
     Q3Stats.Chart.drawGame();
   };
 
@@ -28,6 +30,8 @@ Q3Stats.GamesTables = function(){
       rendered = self.template(game);
       $(rendered).appendTo(self.$games);
     });
+
+    $(".table").tablesorter();
   };
 
   return {
